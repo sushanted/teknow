@@ -9,9 +9,10 @@ Parameters:
 3. No. of replicas 
 4. No. of consumers
 
+No. of partitions can be more than no. of nodes (brokers).
 
 Consumer style : 
-Every consumer consumes every event
-Consumer group : Every consumer in a group consumes from a single partition, where every partition receives a hashed value, e.g. if there are 1000 customers 
+1. Every consumer consumes every event
+2. Consumer group : Every consumer in a group consumes from a single partition, where every partition receives a hashed value, e.g. if there are 1000 customers 
 having customerId and CustID, it can be hashed into N number of partitions and N consumers from the consumer group now can consume messages. One customer's 
 events will always be processed by a single consumer and the order in which events were pushed for that customer would always be maintained by kafka.
