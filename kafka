@@ -9,10 +9,13 @@ Parameters:
 3. No. of replicas 
 4. No. of consumers
 
+Replicas are used only on fail-over cases, they are not actively read but are always written.
 No. of partitions can be more than no. of nodes (brokers).
+No. of consumers can be lesser than partitions, in this case some consumer is assigned more than 1 partitions each.
 
 Consumer style : 
 1. Every consumer consumes every event
 2. Consumer group : Every consumer in a group consumes from a single partition, where every partition receives a hashed value, e.g. if there are 1000 customers 
 having customerId and CustID, it can be hashed into N number of partitions and N consumers from the consumer group now can consume messages. One customer's 
 events will always be processed by a single consumer and the order in which events were pushed for that customer would always be maintained by kafka.
+3. Consumers in differnt consumer groups get the same data, the offset(per partition) is managed differently for each consumer in each group.
