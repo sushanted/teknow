@@ -1,0 +1,17 @@
+Good start, concepts:
+
+https://medium.com/inspiredbrilliance/kafka-basics-and-core-concepts-5fd7a68c3193
+
+Parameters:
+
+1. No. of nodes in the cluster
+2. No. of partitions
+3. No. of replicas 
+4. No. of consumers
+
+
+Consumer style : 
+Every consumer consumes every event
+Consumer group : Every consumer in a group consumes from a single partition, where every partition receives a hashed value, e.g. if there are 1000 customers 
+having customerId and CustID, it can be hashed into N number of partitions and N consumers from the consumer group now can consume messages. One customer's 
+events will always be processed by a single consumer and the order in which events were pushed for that customer would always be maintained by kafka.
